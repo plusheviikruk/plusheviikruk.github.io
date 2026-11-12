@@ -14,7 +14,7 @@
     --cream-alt: #ebdfca;
     --card: #f7ecd9;
     --line: #e6d8c3;
-    --rose: #d98c8c;
+    --yarn-green: #a9bd9f; /* зелёный клубка с фото на первом экране — главные кнопки и акценты */
     --rose-dark: #b5616a;
     --sage: #8fae95;
     --sage-dark: #4b6850;
@@ -71,8 +71,8 @@
     border: 2px solid transparent;
     transition: background-color .2s, color .2s, box-shadow .2s;
   }
-  .btn-main { background: var(--rose); color: var(--text); }
-  .btn-main:hover { background: var(--rose-dark); color: #fff; }
+  .btn-main { background: var(--yarn-green); color: var(--text); }
+  .btn-main:hover { background: var(--sage-dark); color: #fff; }
   .btn-soft { background: transparent; color: var(--sage-dark); border-color: var(--sage); }
   .btn-soft:hover { background: var(--sage); color: var(--text); }
   .btn:hover { box-shadow: 0 4px 14px rgba(61, 47, 42, .16); }
@@ -231,7 +231,7 @@
     content: counter(step);
     display: grid; place-items: center;
     width: 42px; height: 42px; border-radius: 50%;
-    background: var(--rose); color: var(--text);
+    background: var(--yarn-green); color: var(--text);
     font-family: "Comfortaa", sans-serif; font-weight: 700; margin-bottom: 12px;
   }
   .steps h3 { font-size: 1.02rem; }
@@ -242,7 +242,7 @@
   .care p { margin: 0; color: var(--text-2); }
 
   .promo {
-    background: var(--card); border: 2px dashed var(--rose); border-radius: var(--radius);
+    background: var(--card); border: 2px dashed var(--yarn-green); border-radius: var(--radius);
     padding: clamp(24px, 4vw, 40px); display: flex; gap: 24px; align-items: center;
   }
   .promo .big { font-family: "Comfortaa", sans-serif; font-weight: 700; font-size: clamp(2.2rem, 5vw, 3.2rem); color: var(--rose-dark); white-space: nowrap; }
@@ -267,7 +267,7 @@
   .faq summary::after {
     content: "+"; flex: none;
     display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
-    background: var(--rose); color: var(--text); font-family: "Nunito", sans-serif; font-weight: 800; font-size: 1.2rem;
+    background: var(--yarn-green); color: var(--text); font-family: "Nunito", sans-serif; font-weight: 800; font-size: 1.2rem;
     transition: transform .2s;
   }
   .faq details[open] summary::after { transform: rotate(45deg); }
