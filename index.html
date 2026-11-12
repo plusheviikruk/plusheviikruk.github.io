@@ -107,13 +107,28 @@
   .site-nav a:hover { color: var(--rose-dark); }
 
   /* Первый экран */
-  .hero { padding: clamp(40px, 7vw, 88px) 0; overflow: hidden; }
-  .hero .wrap {
-    display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(28px, 5vw, 64px); align-items: center;
+  /* Первый экран на всю высоту окна: фото с пряжей фоном, слева сливочная вуаль для читаемости текста */
+  .hero {
+    position: relative; overflow: hidden;
+    min-height: calc(100svh - 64px);
+    display: flex; align-items: center;
+    padding: clamp(48px, 8vw, 96px) 0;
   }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: 70% 55%;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(90deg,
+      rgba(243, 234, 219, .96) 0%, rgba(243, 234, 219, .9) 44%,
+      rgba(243, 234, 219, .45) 64%, rgba(243, 234, 219, 0) 82%);
+  }
+  .hero .wrap { position: relative; z-index: 2; }
+  .hero .wrap > div { max-width: 600px; }
   .hero p.lead { font-size: 1.12rem; color: var(--text-2); max-width: 36em; }
   .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
-  .hero-media { position: relative; }
   .sway { transform-origin: 50% 0; animation: sway 6s ease-in-out infinite; }
   @keyframes sway { 0%,100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
 
@@ -310,8 +325,9 @@
   }
   @media (max-width: 860px) {
     .site-nav { display: none; }
-    .hero .wrap, .two-col { grid-template-columns: 1fr; }
-    .hero-media { max-width: 420px; margin-inline: auto; width: 100%; }
+    .two-col { grid-template-columns: 1fr; }
+    .hero-bg { object-position: 60% 50%; }
+    .hero::before { background: rgba(243, 234, 219, .86); }
     .grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
     .custom, .care, .terms { grid-template-columns: 1fr; }
     .promo { flex-direction: column; align-items: flex-start; }
@@ -377,6 +393,7 @@
 
   <!-- 1. Первый экран -->
   <section class="hero" id="top">
+    <img class="hero-bg" src="images/pryazha-korzina-fon.jpg" width="1920" height="1280" fetchpriority="high" alt="Плетёная корзина с клубками пряжи в зелёных, бежевых и розовых тонах и спицы на вязаном полотне">
     <div class="wrap">
       <div>
         <p class="label">Вязаные игрушки ручной работы на заказ</p>
@@ -385,11 +402,6 @@
         <div class="hero-actions">
           <a class="btn btn-main" href="#catalog">Выбрать игрушку</a>
           <a class="btn btn-soft order-link-btn" href="https://t.me/burik270467" target="_blank" rel="noopener">Заказать в Telegram</a>
-        </div>
-      </div>
-      <div class="hero-media">
-        <div class="photo">
-          <img src="images/komplekt-odezhdy.jpg" width="750" height="1000" alt="Вязаная зайка и разложенный рядом комплект одежды: шапочка с помпоном, платье с фатином, розовое пальто, пинетки и сумочка">
         </div>
       </div>
     </div>
