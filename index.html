@@ -207,24 +207,22 @@
   .order-link:hover { color: var(--rose-dark); }
 
   /* Блоки с текстом */
-  /* «О мастерице»: фото клубка фоном всего блока, слева тёмная вуаль, текст светлый, плашки — сливочные */
-  .about-photo { position: relative; overflow: hidden; background: #2b2722; }
+  /* «О мастерице»: светлое фото сливочной пряжи фоном всего блока, слева лёгкая сливочная вуаль под текстом */
+  .about-photo { position: relative; overflow: hidden; background: var(--cream-alt); }
   .about-bg {
     position: absolute; inset: 0; z-index: 0;
     width: 100%; height: 100%;
-    object-fit: cover; object-position: 68% 55%;
+    object-fit: cover; object-position: 50% 50%;
   }
   .about-photo::before {
     content: ""; position: absolute; inset: 0; z-index: 1;
     background: linear-gradient(90deg,
-      rgba(34, 30, 25, .86) 0%, rgba(34, 30, 25, .76) 48%,
-      rgba(34, 30, 25, .25) 72%, rgba(34, 30, 25, 0) 88%);
+      rgba(243, 234, 219, .88) 0%, rgba(243, 234, 219, .78) 50%,
+      rgba(243, 234, 219, .3) 78%, rgba(243, 234, 219, .1) 100%);
   }
   .about-photo .wrap { position: relative; z-index: 2; }
   .about-text { max-width: 640px; }
-  .about-photo .label { color: #d9e3d2; }
-  .about-photo h2 { color: #f7ecd9; }
-  .about-text > p { color: rgba(247, 236, 217, .92); }
+  .about-text > p { color: var(--text); }
   .facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 28px; }
   .fact {
     background: var(--card); border-radius: 18px; padding: 18px 20px; box-shadow: var(--shadow);
@@ -344,8 +342,7 @@
   }
   @media (max-width: 860px) {
     .site-nav { display: none; }
-    .about-bg { object-position: 72% 50%; }
-    .about-photo::before { background: rgba(34, 30, 25, .58); }
+    .about-photo::before { background: rgba(243, 234, 219, .5); }
     /* Телефон: фото в оригинальных цветах, без вуали; текст — на сливочной плашке внизу экрана */
     .hero { align-items: flex-end; padding: 120px 0 24px; }
     .hero-bg { object-position: 55% 40%; }
@@ -678,7 +675,7 @@
 
   <!-- 4. О мастерице и материалах -->
   <section id="about" class="alt about-photo" aria-labelledby="about-title">
-    <img class="about-bg" src="images/klubok-zelenyi-fon.jpg" width="1920" height="1312" loading="lazy" alt="Клубок оливково-зелёной пряжи на старой деревянной скамье, за ним — вязаное полотно из той же пряжи">
+    <img class="about-bg" src="images/pryazha-kremovaya-fon.jpg" width="1920" height="1094" loading="lazy" alt="Крупным планом мягкие кручёные нити сливочной хлопковой пряжи в тёплом свете">
     <div class="wrap">
       <div class="about-text">
         <p class="label">О мастерице и материалах</p>
