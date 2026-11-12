@@ -342,7 +342,16 @@
     .contacts { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 860px) {
-    .site-nav { display: none; }
+    /* Меню на телефоне и планшете — второй строкой под названием, в одну линию */
+    .site-header .wrap { flex-wrap: wrap; row-gap: 18px; }
+    .site-nav {
+      width: 100%; flex-wrap: nowrap; justify-content: space-between; gap: 12px;
+      font-size: .95rem; white-space: nowrap;
+      overflow-x: auto; scrollbar-width: none;
+    }
+    .site-nav::-webkit-scrollbar { display: none; }
+    .logo-ball { width: 36px; }
+    .site-header .logo { padding-left: 46px; }
     .about-photo::before { background: rgba(243, 234, 219, .5); }
     /* Телефон: фото в оригинальных цветах, без вуали; текст — на сливочной плашке внизу экрана */
     .hero { align-items: flex-end; padding: 120px 0 24px; }
